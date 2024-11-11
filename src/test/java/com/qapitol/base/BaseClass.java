@@ -16,11 +16,9 @@ public class BaseClass {
     public static void  initialize() throws IOException {
         Properties prop=new Properties();
 
-        String path = System.getProperty("user.dir" + "//src//test//java//com//qapitol//util//TestData.properties");
-        FileInputStream fis=new FileInputStream(path);
+       FileInputStream fis=new FileInputStream("C:\\Users\\Qapitol QA\\IdeaProjects\\QapitolProject\\src\\test\\java\\com\\qapitol\\util\\TestData.properties");
         prop.load(fis);
         String urlName = prop.getProperty("url");
-
         driver = new ChromeDriver();
         driver.get(urlName);
         driver.manage().window().maximize();
