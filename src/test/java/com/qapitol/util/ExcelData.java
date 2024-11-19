@@ -10,34 +10,50 @@ import java.io.IOException;
 
 public class ExcelData {
 
-public  static Object[][] getDta() throws IOException {
-    String sheetName = "Sheet1";
+    public static void main(String[] args) throws IOException {
+        ExcelData.getData();
+    }
 
-    FileInputStream fis = new FileInputStream("C:\\Users\\Qapitol QA\\Downloads\\Book - Copy.xlsx");
+    public static Object[][] getData() throws IOException {
+        String sheetName = "Sheet1";
 
-    XSSFWorkbook workbook = new XSSFWorkbook(fis);
-    XSSFSheet sheet = workbook.getSheet(sheetName);
-    Object[][] data = null;
-     int lastrows = sheet.getLastRowNum();
+        FileInputStream fis = new FileInputStream("C:\\Users\\Qapitol QA\\Downloads\\Book 4.xlsx");
+
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+        XSSFSheet sheet1 = workbook.getSheet(sheetName);
+        XSSFSheet sheet = workbook.getSheetAt(0);
+
+       // int lastrows = sheet.getLastRowNum();
+        int rowcount=sheet.getPhysicalNumberOfRows();
+        //System.out.println(rowcount);
+        XSSFRow row = sheet.getRow(0);
+
+        int lastcol = row.getLastCellNum();
+        System.out.println(lastcol);
+
+        Object data[][]=new Object[rowcount-1][lastcol];
 
 
-    int lastcol = sheet.getRow(1).getLastCellNum();
 
-    
-    
-    for(int r=1;r<=lastrows;r++){
-        XSSFRow currentrow = sheet.getRow(r);
 
-        for(int c=0;c<lastcol;c++){
-            XSSFCell cell = currentrow.getCell(c);
-            data[r][c] = cell.getStringCellValue();
+        for(int i=0;i<=rowcount;i++){
+            row = sheet.getRow(i+1);
+
+            for(int j=0;j<=lastcol;j++){
+                XSSFCell cell = row.getCell(j);
+                //System.out.println(cell);
+                //data[r][c] = cell.getStringCellValue();
+
+                data[i][j]=cell.getStringCellValue();
+
+
+            }
 
         }
+        return data;
 
     }
-    return data;
 
 }
 
 
-}

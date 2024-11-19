@@ -2,28 +2,27 @@ package com.qapitol.testcases;
 
 import com.qapitol.base.BaseClass;
 import com.qapitol.pages.AlertPage;
-import com.qapitol.pages.FramePage;
-import com.qapitol.pages.WindowPage;
 import org.testng.annotations.Test;
 
 public class AlertTextCase extends BaseClass {
-    @Test(enabled = false)
+    @Test()
     public void alerthandling() throws InterruptedException {
         AlertPage at=new AlertPage();
         at.alertElements();
 
     }
-    @Test(enabled = false)
+    @Test()
     public void frameHandling(){
-        FramePage fp=new FramePage();
+        AlertPage fp=new AlertPage();
         fp.frameElements();
 
     }
 
-    @Test
+    @Test()
     public void windowHandling(){
-        WindowPage wp=new WindowPage();
+        AlertPage wp=new AlertPage();
         wp.windowElements();
+
     }
 
 }

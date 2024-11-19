@@ -2,17 +2,45 @@ package com.qapitol.pages;
 
 import com.qapitol.base.BaseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class FormsPage extends BaseClass {
-    public void formsElemnets(String fname,String lname) throws InterruptedException {
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div[1]/div/div/div[2]/span/div/div[1]")).click();
+    public FormsPage(){
+        PageFactory.initElements(driver,this);
+    }
 
-        Thread.sleep(1000);
-      driver.findElement(By.xpath("//span[text()='Practice Form']")).click();
+    @FindBy(xpath ="(//div[@class='category-cards']//div[@class='avatar mx-auto white'])[2]")
+    WebElement formMain;
 
-driver.findElement(By.id("firstName")).sendKeys(fname);
-driver.findElement(By.id("lastName")).sendKeys(lname);
-//driver.findElement(By.id("userEmail")).sendKeys(email);
+    @FindBy(xpath ="(//li[@id='item-0'])[2]")
+    WebElement practiceForm;
+
+    @FindBy(id ="firstName")
+    WebElement firstName;
+
+    @FindBy(id ="lastName")
+    WebElement lastName;
+
+
+
+
+
+
+
+
+
+    public void formsElemnets(String fname, String lname,String email) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", formMain);
+        js.executeScript("arguments[0].click()", practiceForm);
+        firstName.sendKeys(fname);
+        lastName.sendKeys(lname);
+        driver.findElement(By.id("userEmail")).sendKeys(email);
+        //System.out.println(email);
+
 
     }
 

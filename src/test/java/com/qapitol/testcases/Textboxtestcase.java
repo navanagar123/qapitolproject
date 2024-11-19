@@ -11,41 +11,26 @@ import java.io.IOException;
 
 public class Textboxtestcase extends BaseClass {
 
-    @Test(enabled = false)
+    @Test()
     public void textBox(){
         TextBoxPage t=new TextBoxPage();
         t.TextboxElemnets();
     }
 
-    @Test(enabled = false)
+    @Test()
     public void checkBox() throws InterruptedException {
-        CheckboxPage ch=new CheckboxPage();
+        TextBoxPage ch=new TextBoxPage();
         ch.checkboxElements();
 
     }
-    @Test(enabled = false)
+
+    @Test()
     public void webTable() throws InterruptedException {
-        WebTablesPage wt=new WebTablesPage();
-        wt.webTable();
-        
-
+        TextBoxPage ch=new TextBoxPage();
+        ch.webTable();
 
     }
 
-    @Test(dataProvider="testData",enabled=false)
-    public void formsPage(String fname,String lname) throws InterruptedException {
-        FormsPage fp=new FormsPage();
-        fp.formsElemnets(fname,lname);
-    }
-
-//    @DataProvider(name="testData")
-//    public Object[][] testDataFeed() throws IOException {
-//
-//        Object[][] data = ExcelData.getDta();
-//
-//        return data;
-//
-//    }
 
 
 

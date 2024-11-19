@@ -14,11 +14,30 @@ public class WidgetsTestCase extends BaseClass {
 
     }
 
-    @Test
-    public void autoComplete(){
-        DatePickerPage dt=new DatePickerPage();
-        dt.autoCompleteElements();
 
+
+    @Test(enabled = false)
+    public void SelectMenu(){
+        DatePickerPage sp=new DatePickerPage();
+        sp.selectMenuElements();
+    }
+
+    @Test(enabled = false)
+    public void slidebar(){
+        DatePickerPage sb=new DatePickerPage();
+        sb.slider();
+    }
+
+    @Test(enabled = false)
+    public void progressBar(){
+        DatePickerPage sb=new DatePickerPage();
+        sb.progressBar();
+    }
+
+    @Test
+    public void toolTip(){
+        DatePickerPage sb=new DatePickerPage();
+        sb.tooltip();
     }
 
 

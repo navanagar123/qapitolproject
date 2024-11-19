@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Qapitol QA/IdeaProjects/QapitolProject/src/test/java/com/qapitol/testcases">
+        <classes>
+            <class name="com.qapitol.testcases.AlertTextCase">
+            </class>
+
+            <class name="com.qapitol.testcases.Textboxtestcase"/>
+
+    <class name="com.qapitol.testcases.WidgetsTestCase">
+       </class>
+</classes>
+</test>
+</suite>
